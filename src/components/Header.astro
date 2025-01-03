@@ -1,0 +1,81 @@
+---
+import lcLogo from "../assets/logo.svg";
+import searchLogo from "../assets/searchlogo.svg";
+import downArrow from "../assets/downArrow.svg";
+---
+
+<header>
+  <a href="https://astro.build"
+    ><img
+      src={lcLogo.src}
+      width="125"
+      alt="Lady Catherine's website homepage"
+    /></a
+  >
+  <nav>
+    <ul>
+      <li>About</li>
+      <li>Test</li>
+      <li>
+        <div class="courses">
+          <p>Course</p>
+          <img
+            src={downArrow.src}
+            width="12"
+            height="12"
+            alt="Extend courses"
+          />
+        </div>
+      </li>
+      <li>Contact</li>
+    </ul>
+    <ul>
+      <li>
+        <img src={searchLogo.src} width="30" height="30" alt="Search logo" />
+      </li>
+
+      <li>Login</li>
+    </ul>
+  </nav>
+</header>
+
+<style scoped>
+  :root {
+    --blue: rgba(183, 223, 255, 0.2);
+  }
+
+  * {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--blue);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+  }
+
+  ul {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  label > .courses {
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+  }
+</style>
