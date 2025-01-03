@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: Run Cypress Tests
-        run: npm run cypress
+        run: npm run test
 
       - name: Upload Cypress Videos and Screenshots (if tests fail)
         if: failure()

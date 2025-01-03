@@ -1,8 +1,14 @@
 {
-  "devDependencies": {
-    "cypress": "^13.17.0"
-  },
+  "name": "english-project",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "test": "cypress run"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.1.2"
   }
 }
