@@ -13,7 +13,7 @@ import downArrow from "../assets/downArrow.svg";
     /></a
   >
   <nav>
-    <ul>
+    <ul class="left-side">
       <li>About</li>
       <li>Test</li>
       <li>
@@ -29,7 +29,7 @@ import downArrow from "../assets/downArrow.svg";
       </li>
       <li>Contact</li>
     </ul>
-    <ul>
+    <ul class="right-side">
       <li>
         <img src={searchLogo.src} width="30" height="30" alt="Search logo" />
       </li>
@@ -54,12 +54,14 @@ import downArrow from "../assets/downArrow.svg";
     align-items: center;
     background-color: var(--blue);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-inline: 25%;
   }
 
   nav {
     display: flex;
     justify-content: space-between;
     font-size: 24px;
+    width: 100%;
   }
 
   ul {
@@ -68,14 +70,23 @@ import downArrow from "../assets/downArrow.svg";
     align-items: center;
   }
 
+  .left-side {
+    gap: 3rem;
+  }
+
   li {
     list-style: none;
   }
 
-  label > .courses {
+  li > .courses {
     display: flex;
     align-items: center;
-
     gap: 4px;
+  }
+
+  .right-side > li > img {
+    position: relative;
+    left: 0;
+    top: 4px;
   }
 </style>
