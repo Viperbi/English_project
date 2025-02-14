@@ -1,40 +1,41 @@
 ---
 import lcLogo from "../assets/logo.svg";
-import searchLogo from "../assets/searchlogo.svg";
-import downArrow from "../assets/downArrow.svg";
+import burgerIcon from "../assets/burger.svg";
 ---
 
 <header>
-  <a href="https://astro.build"
-    ><img
-      src={lcLogo.src}
-      width="125"
-      alt="Lady Catherine's website homepage"
-    /></a
-  >
-  <nav>
+  <nav class="desktop">
     <ul class="left-side">
-      <li>About</li>
-      <li>Test</li>
+      <a href="/"
+        ><img
+          class="logo"
+          src={lcLogo.src}
+          width="125"
+          alt="Lady Catherine's website homepage"
+        /></a
+      >
+      <li><a href="/about">About</a></li>
+      <li><a href="/test">Test</a></li>
       <li>
-        <div class="courses">
-          <p>Course</p>
-          <img
-            src={downArrow.src}
-            width="12"
-            height="12"
-            alt="Extend courses"
-          />
-        </div>
+        <a href="/course">Course</a>
       </li>
-      <li>Contact</li>
+      <li><a href="/contact">Contact</a></li>
     </ul>
     <ul class="right-side">
-      <li>
-        <img src={searchLogo.src} width="30" height="30" alt="Search logo" />
-      </li>
-      <li>Login</li>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/register">Register</a></li>
     </ul>
+  </nav>
+  <nav class="mobile">
+    <a href="/"
+      ><img
+        class="logo"
+        src={lcLogo.src}
+        width="125"
+        alt="Lady Catherine's website homepage"
+      /></a
+    >
+    <img class="burgerMenu" src={burgerIcon.src} alt="Menu" />
   </nav>
 </header>
 
@@ -45,22 +46,51 @@ import downArrow from "../assets/downArrow.svg";
 
   * {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+    transition: all;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
   }
 
   header {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
     background-color: var(--blue);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding-inline: 25%;
+    padding-inline: 1rem;
+  }
+
+  .logo {
+    width: 5rem;
+  }
+
+  .logo:hover {
+    transform: scale(1.1);
+  }
+
+  .burgerMenu {
+    width: 3rem;
+    cursor: pointer;
+  }
+
+  .burgerMenu:hover {
+    transform: scale(1.1);
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    display: flex;
   }
 
   nav {
     display: flex;
     justify-content: space-between;
     font-size: 24px;
-    width: 100%;
+    align-items: center;
   }
 
   ul {
@@ -87,5 +117,30 @@ import downArrow from "../assets/downArrow.svg";
     position: relative;
     left: 0;
     top: 4px;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .right-side {
+    display: flex;
+    gap: 2rem;
+  }
+
+  @media only screen and (max-width: 950px) {
+    * {
+      font-size: small;
+    }
+
+    .mobile {
+      display: flex;
+      padding: 1rem;
+    }
+
+    .desktop {
+      display: none;
+    }
   }
 </style>
