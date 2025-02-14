@@ -20,6 +20,10 @@ const pageTitle = "Homepage";
 			<Course title="Back to the basics" image={londonImage.src} link="/course-basics" />
 			<Course title="I.T vocabulary" image={techImage.src} link="/course-ITvocabulary" />
 		</div>
+
+		<div class="test">
+			<Course title="Level Indicator" image={testImage.src} link="/test" />
+		</div>
 		
 
 	</div>
@@ -30,7 +34,7 @@ const pageTitle = "Homepage";
 		margin: 0 15% 0 15%;
 		padding: 100px 5% 100px 5%;
 		background-color: rgba(183, 223, 255, 0.2);
-		min-height: 100vh;
+		height: 100%;
 	}
 
 	.title{
@@ -60,8 +64,8 @@ const pageTitle = "Homepage";
 	.courses {
         display: flex;
         flex-wrap: wrap;
-        gap: 30px;
+        gap: 50px;
         justify-content: center;
-        margin-top: 50px;
+        margin-top: 70px;
     }
 </style>
