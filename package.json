@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "english-project",
   "type": "module",
   "version": "0.0.1",
@@ -12,3 +13,12 @@
     "astro": "^5.1.2"
   }
 }
+=======
+  "devDependencies": {
+    "cypress": "^13.17.0"
+  },
+  "scripts": {
+    "test": "cypress run"
+  }
+}
+>>>>>>> f637c90 (new commit)
