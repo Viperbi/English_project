@@ -4,6 +4,7 @@ import Course from '../components/Course.astro';
 import techImage from '../assets/tech.svg';
 import testImage from '../assets/test.svg';
 import londonImage from '../assets/london.svg';
+import premium from '../assets/premium.svg';
 
 const pageTitle = "Homepage";
 ---
@@ -17,55 +18,114 @@ const pageTitle = "Homepage";
 		</div>
 		
 		<div class="courses">
-			<Course title="Back to the basics" image={londonImage.src} link="/course-basics" />
-			<Course title="I.T vocabulary" image={techImage.src} link="/course-ITvocabulary" />
+			<Course title="Back to the basics" image={londonImage.src} link="/course-basics" hook="Start to learn" />
+			<Course title="I.T vocabulary" image={techImage.src} link="/course-ITvocabulary" hook="Start to learn" />
 		</div>
 
 		<div class="test">
-			<Course title="Level Indicator" image={testImage.src} link="/test" />
+			<p class="hook">Test your skills<br>be sure of your level</p>
+			<Course title="Level Indicator" image={testImage.src} link="/test" hook="Start the test", smallDetails ={true} />
 		</div>
-		
 
+		<div class="premium">
+			<a href="/shop" ><img src={premium.src}/></a>
+		</div>
 	</div>
 </Layout>
 
+
 <style>
-	.content{
-		margin: 0 15% 0 15%;
-		padding: 100px 5% 100px 5%;
-		background-color: rgba(183, 223, 255, 0.2);
-		height: 100%;
-	}
+    .content {
+        margin: 0 5%;
+        padding: 50px 20px; 
+        background-color: rgba(183, 223, 255, 0.2);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+    }
 
-	.title{
-		display: flex;
-		flex-direction: column;
-		gap: 5px;
-	}
+    .title {
+        width: 100%;
+        max-width: 800px; 
+        margin-bottom: 40px;
+    }
 
-	h1{
+    h1 {
         text-align: center;
-        font-size: 1.8rem;
+        font-size: clamp(1.2rem, 4vw, 1.8rem); 
         color: #082033;
         font-family: Verdana;
         font-weight: bold;
-	}
+    }
 
-	.subtitle{
-		text-align: center;
-        font-size: 1.3rem;
-		color: #082033;
-		opacity: 0.6;
-		font-style: italic;
-		font-family: Verdana;
+    .subtitle {
+        text-align: center;
+        font-size: clamp(1rem, 3vw, 1.3rem);
+        color: #082033;
+        opacity: 0.6;
+        font-style: italic;
+        font-family: Verdana;
         font-weight: bold;
-	}
+    }
 
-	.courses {
+    .courses {
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
-        gap: 50px;
+        gap: 30px;
         justify-content: center;
-        margin-top: 70px;
+        margin: 40px 0;
+        height: auto;
+    }
+
+    .test {
+        width: 100%;
+        max-width: 800px;
+        margin: 40px 0;
+        padding: 0 20px;
+        height: auto;
+    }
+
+    .hook {
+        text-align: center;
+        font-size: clamp(1.5rem, 5vw, 36px);
+        color: #082033;
+        font-family: Verdana;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+    .premium {
+        width: 100%;
+        max-width: 800px;
+        margin: 60px auto 0;
+        transition: 0.5s ease;
+        border-radius: 30px;
+    }
+
+    .premium img {
+        width: 100%;
+        height: auto;
+        border-radius: 30px;
+    }
+
+    @media (min-width: 768px) {
+        .content {
+            margin: 0 10%;
+            padding: 80px 40px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .content {
+            margin: 0 15%;
+            padding: 100px 5%;
+        }
+
+        .test {
+			max-width: 800px;
+            margin: 120px 0;
+        }
     }
 </style>
