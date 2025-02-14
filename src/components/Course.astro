@@ -1,28 +1,25 @@
 ---
-const { title, image, link } = Astro.props;
+const { title, image, link, hook, smallDetails = false } = Astro.props;
 ---
 
 <div class="course-card">
     <img src={image} alt={title} class="course-image">
-    <div class="details">
-        <h2>{title}</h2>
-        <a href={link} class="start-button">Start to learn</a>
+    <div class={`details ${smallDetails ? 'small-details' : ''}`}>
+        <p>{title}</p>
+        <a href={link} class="start-button">{hook}</a>
     </div>
 </div>
 
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
     .course-card {
         position: relative;
-        border-radius: 15px;
+        border-radius: 30px;
         overflow: hidden;
-        width: 300px;
-        height: 200px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-    }
-
-    .course-card:hover {
-        transform: translateY(-5px);
+        width: auto;
+        height: auto;
+        box-shadow: 0 4px 8px rgba(0, 4, 4, 0.25);
     }
 
     .course-image {
@@ -37,28 +34,44 @@ const { title, image, link } = Astro.props;
         left: 0;
         right: 0;
         background: #2C2C2C;
-        padding: 20px;
+        padding: 20px; 
+        display: flex;
+        flex-direction: column;
+        gap: 10px; 
         color: white;
     }
 
-    h2 {
+    .small-details {
+        padding: 20px 20px;  
+    }
+
+    .small-details p {
+        margin: 0;  
+        font-size: 1.1rem;  
+    }
+
+    p {
         margin: 0 0 15px 0;
         font-size: 1.2rem;
         font-weight: bold;
+        font-family: Verdana;
     }
 
     .start-button {
-        display: inline-block;
-        background-color: rgba(255, 255, 255, 0.9);
-        color: #082033;
+        align-self: flex-end;
+        background-color: #b7dfffcc;
+        color: white;
+        width: 110px;
         padding: 8px 20px;
         border-radius: 20px;
         text-decoration: none;
         font-size: 0.9rem;
-        transition: background-color 0.3s ease;
+        font-family: Verdana;
+        transition: 0.2s ease;
+        text-align: center;
     }
 
     .start-button:hover {
-        background-color: white;
+        background-color: #E72025;
     }
 </style>
