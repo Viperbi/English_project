@@ -1,29 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const pageTitle = "Login Page";
+const pageTitle = "Contact Page";
 ---
 <Layout pageTitle={pageTitle}>
     <div class="content">
       
-        <p class="title">Login</p>
+        <p class="title">Contact us</p>
       
         <div class="form">
             <form>
                 <div class="Box">
                     <div id="message" class="message"></div> <!-- div to print errors and success during registering -->
-                    <div class="informations">
-                        <span class="fields">Email</span>
-                        <input type="email" id="email" placeholder="Enter your email" pattern='^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$' required />
-                    </div>
-                    <div class="informations">
-                        <span class="fields">Password</span>
-                        <input type="password" id="password" placeholder="Enter your password" pattern='^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$' required />
-                    </div>
-                    
-                    <input type="submit" id="submit" value="Sign In" />
 
-                    <a href="/forgot-password" class="forgot">Forgot password?</a>
+                    <div class="informations-head">
+                            <input type="text" id="firstname" placeholder="Firstname" required />
+                            <input type="text" id="lastname" placeholder="Lastname" required />
+                    </div>
+
+                    <input type="email" id="email" placeholder="Email" pattern='^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$' required />
+
+                    <input type="tel" id="phone-number" placeholder="Phone number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required />
+
+                    <input type="text" id="subject" placeholder="Subject" required />
+
+                    <textarea id="message" placeholder="Message" required />
+
+
+                    <input type="submit" id="submit" value="Send a message" />
                     
                 </div>
             </form>
@@ -54,20 +58,22 @@ const pageTitle = "Login Page";
         padding: 30px 30px 20px 30px;
         width: 30%;
     }
-    .fields{
-        font-size: 1.2rem;
-        font-family: Verdana;
-        color: #2C2C2C;
-    }
-    .informations{
+    .informations-head {
         display: flex;
-        flex-direction: column;
-        gap:10px;
+        gap: 10px;
+        width: 100%;
     }
-    input[type=email], input[type=password]{
+
+    .informations-head input {
+        flex: 1;
+        min-width: 0;
+        width: 100%; 
+    }
+
+    input[type=email], input[type=text], input[type=tel], textarea{
         border-radius: 8px;
         border: 1px solid #082033;
-        height:25px;
+        height:35px;
         color: #082033;
         font-size: 1.1rem;
         font-family: Verdana;
@@ -75,21 +81,32 @@ const pageTitle = "Login Page";
         width:auto;
         outline:none;
     }
-    input::placeholder{
+    textarea{
+        height: 100px;
+    }
+
+    input::placeholder, textarea::placeholder{
         color: #B3B3B3;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         font-family: Verdana;
         font-weight: 100;
     }
     .Box{
         display: flex;
         flex-direction: column;
-        gap:20px;
+        gap:10px;
     }
-    .forgot{
+    label{
         font-size: 0.8rem;
         font-family: "Poppins";
+    }
+    label > a:link{
         color:black;
+        text-decoration: underline;
+    }
+    .conditions{
+        display: flex;
+        align-items: center;
     }
     #submit{
         background-color: #2C2C2C;
