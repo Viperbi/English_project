@@ -7,18 +7,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "cypress run"
   },
   "dependencies": {
     "astro": "^5.1.2"
   }
+  
 }
-=======
-  "devDependencies": {
-    "cypress": "^13.17.0"
-  },
-  "scripts": {
-    "test": "cypress run"
-  }
-}
->>>>>>> f637c90 (new commit)
