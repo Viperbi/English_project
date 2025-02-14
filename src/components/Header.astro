@@ -42,6 +42,7 @@ import burgerIcon from "../assets/burger.svg";
   </nav>
   <ul id="mobileMenu">
     <li><a href="/about">About</a></li>
+
     <li><a href="/test">Test</a></li>
     <li>
       <a href="/course">Course</a>
@@ -123,7 +124,7 @@ import burgerIcon from "../assets/burger.svg";
     }
 
     .left-side {
-      gap: 3rem;
+      gap: 1rem;
     }
 
     li {
@@ -145,7 +146,12 @@ import burgerIcon from "../assets/burger.svg";
     a {
       text-decoration: none;
       color: black;
-      padding: 1rem;
+      padding: 0.5em 1rem;
+    }
+
+    a:hover,
+    a:active {
+      color: #e72025;
     }
 
     .right-side {
@@ -153,7 +159,13 @@ import burgerIcon from "../assets/burger.svg";
       gap: 2rem;
     }
 
-    @media only screen and (max-width: 950px) {
+    @media (width >= 950px) {
+      #mobileMenu {
+        display: none;
+      }
+    }
+
+    @media (width < 950px) {
       * {
         font-size: small;
       }
