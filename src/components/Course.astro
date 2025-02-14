@@ -1,0 +1,20 @@
+---
+const { title, image, link } = Astro.props;
+---
+
+<div id="container">
+    <img src = {image} alt = {image}>
+    <div class="details">
+        <p>{title}</p>
+        <a href={link}>Start to learn</a>
+    </div>
+</div>
+
+
+<style>
+    .container{
+        display:flex;
+        flex-direction: column;
+    }
+
+</style>

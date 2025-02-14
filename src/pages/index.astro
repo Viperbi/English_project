@@ -1,5 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Course from '../components/Course.astro';
+import techImage from '../assets/tech.svg';
+import testImage from '../assets/test.svg';
+import londonImage from '../assets/london.svg';
 
 const pageTitle = "Homepage";
 ---
@@ -10,6 +14,11 @@ const pageTitle = "Homepage";
 		<div class="title">
 			<h1>Welcome to lady learning !</h1>
 			<p class="subtitle">The best place to step up your<br>professional language in english</p>
+		</div>
+		
+		<div class="courses">
+			<Course title="Back to the basics" image={londonImage.src} link="/course-basics" />
+			<Course title="I.T vocabulary" image={techImage.src} link="/course-ITvocabulary" />
 		</div>
 		
 
@@ -47,4 +56,12 @@ const pageTitle = "Homepage";
 		font-family: Verdana;
         font-weight: bold;
 	}
+
+	.courses {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+        margin-top: 50px;
+    }
 </style>
