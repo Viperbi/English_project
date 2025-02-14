@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Course from '../components/Course.astro';
+import techImage from '../assets/tech.svg';
+import testImage from '../assets/test.svg';
+import londonImage from '../assets/london.svg';
+
+const pageTitle = "Homepage";
+---
+
+<Layout pageTitle={pageTitle}>
+    <div class="content">
+
+		<div class="title">
+			<h1>Welcome to lady learning !</h1>
+			<p class="subtitle">The best place to step up your<br>professional language in english</p>
+		</div>
+		
+		<div class="courses">
+			<Course title="Back to the basics" image={londonImage.src} link="/course-basics" />
+			<Course title="I.T vocabulary" image={techImage.src} link="/course-ITvocabulary" />
+		</div>
+		
+
+	</div>
+</Layout>
+
+<style>
+	.content{
+		margin: 0 15% 0 15%;
+		padding: 100px 5% 100px 5%;
+		background-color: rgba(183, 223, 255, 0.2);
+		min-height: 100vh;
+	}
+
+	.title{
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+	}
+
+	h1{
+        text-align: center;
+        font-size: 1.8rem;
+        color: #082033;
+        font-family: Verdana;
+        font-weight: bold;
+	}
+
+	.subtitle{
+		text-align: center;
+        font-size: 1.3rem;
+		color: #082033;
+		opacity: 0.6;
+		font-style: italic;
+		font-family: Verdana;
+        font-weight: bold;
+	}
+
+	.courses {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+        margin-top: 50px;
+    }
+</style>
