@@ -1,12 +1,12 @@
 ---
-const { title, image, link } = Astro.props;
+const { title, image, link, hook, smallDetails = false } = Astro.props;
 ---
 
 <div class="course-card">
     <img src={image} alt={title} class="course-image">
-    <div class="details">
+    <div class={`details ${smallDetails ? 'small-details' : ''}`}>
         <p>{title}</p>
-        <a href={link} class="start-button">Start to learn</a>
+        <a href={link} class="start-button">{hook}</a>
     </div>
 </div>
 
@@ -18,7 +18,7 @@ const { title, image, link } = Astro.props;
         border-radius: 30px;
         overflow: hidden;
         width: auto;
-        height: 430px;
+        height: auto;
         box-shadow: 0 4px 8px rgba(0, 4, 4, 0.25);
     }
 
@@ -35,10 +35,19 @@ const { title, image, link } = Astro.props;
         right: 0;
         background: #2C2C2C;
         padding: 20px; 
-        display:flex;
+        display: flex;
         flex-direction: column;
         gap: 10px; 
         color: white;
+    }
+
+    .small-details {
+        padding: 20px 20px;  
+    }
+
+    .small-details p {
+        margin: 0;  
+        font-size: 1.1rem;  
     }
 
     p {
@@ -49,6 +58,7 @@ const { title, image, link } = Astro.props;
     }
 
     .start-button {
+        align-self: flex-end;
         background-color: #b7dfffcc;
         color: white;
         width: 110px;
@@ -59,7 +69,6 @@ const { title, image, link } = Astro.props;
         font-family: Verdana;
         transition: 0.2s ease;
         text-align: center;
-        align-self: flex-end;
     }
 
     .start-button:hover {
