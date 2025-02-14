@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "Contact Page";
+---
+<Layout pageTitle={pageTitle}>
+    <div class="content">
+      
+        <p class="title">Contact us</p>
+      
+        <div class="form">
+            <form>
+                <div class="Box">
+                    <div id="message" class="message"></div> <!-- div to print errors and success during registering -->
+
+                    <div class="informations-head">
+                            <input type="text" id="firstname" placeholder="Firstname" required />
+                            <input type="text" id="lastname" placeholder="Lastname" required />
+                    </div>
+
+                    <input type="email" id="email" placeholder="Email" pattern='^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$' required />
+
+                    <input type="tel" id="phone-number" placeholder="Phone number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required />
+
+                    <input type="text" id="subject" placeholder="Subject" required />
+
+                    <textarea id="message" placeholder="Message" required />
+
+
+                    <input type="submit" id="submit" value="Send a message" />
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+</Layout>
+
+<style scoped>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    .content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+    .title{
+        text-align: center;
+        font-size: 40px;
+        color: #082033;
+        font-family: Verdana;
+        font-weight: bold;
+    }
+    .form{
+        background-color: rgb(183, 223, 255, 0.2);
+        border-radius: 8px;
+        box-shadow: 0 4px 4px #082033;
+        padding: 30px 30px 20px 30px;
+        width: 30%;
+    }
+    .informations-head {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .informations-head input {
+        flex: 1;
+        min-width: 0;
+        width: 100%; 
+    }
+
+    input[type=email], input[type=text], input[type=tel], textarea{
+        border-radius: 8px;
+        border: 1px solid #082033;
+        height:35px;
+        color: #082033;
+        font-size: 1.1rem;
+        font-family: Verdana;
+        padding-left: 10px;
+        width:auto;
+        outline:none;
+    }
+    textarea{
+        height: 100px;
+    }
+
+    input::placeholder, textarea::placeholder{
+        color: #B3B3B3;
+        font-size: 1.2rem;
+        font-family: Verdana;
+        font-weight: 100;
+    }
+    .Box{
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+    }
+    #submit{
+        background-color: #2C2C2C;
+        border: #2C3185;
+        border-radius: 10px;
+        color: white;
+        font-size: 1.5rem;
+        font-family: "Poppins";
+        transition: 0.2s ease;
+    }
+    #submit:hover{
+        background-color: #E72025;
+    }
+</style>
