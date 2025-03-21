@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Question from '../components/Question.astro';
-// Importation des données questionts/réponses depuis un fichier JSON
+// Importation des données questions/réponses depuis un fichier JSON
 import questionsData from '../data/questions.json';
 
 const pageTitle = "Test Page";
@@ -16,7 +16,6 @@ let currentQuestionIndex = 0;
         questionText={questionsData[currentQuestionIndex].question}
         options={questionsData[currentQuestionIndex].options}
     />
-
     <!-- Remarque: Ajoutez la logique pour passer à la question suivante ici -->
   </div>
 </Layout>
