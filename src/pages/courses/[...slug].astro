@@ -27,7 +27,6 @@ const { data }: any = await sbApi.get(`cdn/stories/courses/${slug}`, {
 
 const course = data.story;
 const content = renderRichText(course.content.content);
-console.log(course.content.content.content);
 ---
 
 <Layout>
@@ -36,3 +35,52 @@ console.log(course.content.content.content);
   <img src={course.content.medium.filename} alt={course.content.title} />
   <p set:html={content}></p>
 </Layout>
+<style>
+    .course-basics {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #082033;
+        font-family: Verdana;
+        padding-bottom: 20px;
+    }
+
+    img {
+        padding-top: 35px;
+    }
+
+    h1 {
+        padding: 15px 0;
+        text-align: center;
+    }
+
+    .first {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media (max-width: 600px) {
+        .course-basics {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #082033;
+        font-family: Verdana;
+    }
+
+    img {
+        padding-top: 35px;
+    }
+
+    h1 {
+        padding: 15px 0;
+        text-align: center;
+    }
+
+    .first {
+        display: flex;
+        flex-direction: column;
+        padding-left: 20px;
+    }
+    }
+</style>
