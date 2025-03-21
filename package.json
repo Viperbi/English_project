@@ -9,6 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.1.2"
+    "astro": "^5.1.2",
+    "chart.js": "^4.4.8",
+    "chartjs-plugin-datalabels": "^2.2.0"
   }
 }

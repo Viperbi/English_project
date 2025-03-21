@@ -1,20 +1,15 @@
 --- 
 import Layout from '../layouts/Layout.astro';
-import Result from '../components/Result.astro';
-import resultsData from '../data/results.json';
+import Progress from '../components/Progress.astro';
+import progressionData from '../data/progress.json';
 
-const pageTitle = "Test Results";
-
-const currentResult = resultsData[2];
+const pageTitle = "Test Progression";
 ---
 
 <Layout pageTitle={pageTitle}>
   <div class="content">
     <p class="title">Test Your English Level</p>
-    <Result
-      scoreTitle={currentResult.title}
-      scoreNumber={currentResult.score}
-    />
+    <Progress progressionData={progressionData} />
   </div>
 </Layout>
 
