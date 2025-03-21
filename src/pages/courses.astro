@@ -1,0 +1,297 @@
+---
+import { useStoryblokApi } from '@storyblok/astro';
+import Layout from "../layouts/Layout.astro"
+
+const sbApi = useStoryblokApi();
+const { data } = await sbApi.get('cdn/stories/', {
+  content_type: 'course',
+  version: import.meta.env.DEV ? 'draft' : 'published',
+});
+
+const courses = data.stories;
+---
+
+<Layout>
+    
+<h1>English courses</h1>
+
+<ul>
+  {courses.map((course: any) => (
+    <li>
+      <a href={`/${course.full_slug}`}>{course.content.title}</a>
+    </li>
+  ))}
+</ul>
+
+</Layout>
+  
+=======
+import Level from '../components/Level.astro';
+import Module from '../components/Module.astro';
+import Layout from '../layouts/Layout.astro';
+
+import beginner from '../assets/beginner.svg';
+import intermediate from '../assets/intermediate.svg';
+import advanced from '../assets/advanced.svg';
+import network from '../assets/network.svg';
+
+const Categories = [
+  "Office automation", 
+  "Business", 
+  "Cybersecurity", 
+  "Data", 
+  "Design", 
+  "Development", 
+  "Professional Integration"
+];
+
+const modules = [
+  { 
+    title: "Network vocabulary", 
+    image: network.src, 
+    description: "Body text.", 
+    link: "/network-vocabulary",
+    categories: ["Cybersecurity", "Professional Integration"] 
+  },
+  { 
+    title: "Developpement vocabulary", 
+    image: network.src, 
+    description: "Body text.", 
+    link: "/developpement-vocabulary",
+    categories: ["Development"] 
+  },
+  { 
+    title: "Create a good requirements", 
+    image: network.src, 
+    description: "Body text.", 
+    link: "/good-requirements",
+    categories: ["Business", "Professional Integration"] 
+  },
+  { 
+    title: "Work smart with shortcuts", 
+    image: network.src, 
+    description: "Body text.", 
+    link: "/shortcuts",
+    categories: ["Office automation"] 
+  }
+];
+
+const pageTitle = "Courses Page";
+---
+<Layout pageTitle={pageTitle}>
+    <div class="content">
+      
+        <div class="title">
+            <h1>Courses</h1>
+        </div>
+
+        <div class="elements">
+            <div class="level">
+                <div class="title">
+                    <h2>Choose your level</h2>
+                </div>
+        
+                <div class="level-grade">
+                    <Level title="Beginner" image={beginner.src} link="/beginner" />
+                    <Level title="Intermediate" image={intermediate.src} link="/intermediate" darkMode={true} />
+                    <Level title="Advanced" image={advanced.src} link="/advanced" />
+                </div>
+            </div>
+            
+            <div class="module">
+                <div class="title">
+                    <h2>Modules</h2>
+                </div>
+
+                <div class="category-filter">
+                    <label class="radio-container">
+                        <input 
+                            type="radio" 
+                            name="category" 
+                            value="All" 
+                            class="category-radio"
+                            checked
+                        />
+                        <span class="radio-label">All</span>
+                    </label>
+                    {Categories.map(category => (
+                        <label class="radio-container">
+                            <input 
+                                type="radio" 
+                                name="category" 
+                                value={category} 
+                                class="category-radio"
+                            />
+                            <span class="radio-label">{category}</span>
+                        </label>
+                    ))}
+                </div>
+
+                <div class="modules" id="modules-container">
+                    {modules.map(module => (
+                        <Module title={module.title} image={module.image} description={module.description} link={module.link} categories={module.categories} />
+                    ))}
+                </div>
+                <p class="no-modules-message">Aucun module trouvé...</p>            
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const radioButtons = document.querySelectorAll<HTMLInputElement>('.category-radio');
+        const moduleCards = document.querySelectorAll<HTMLElement>('.module-card');
+        const noModulesMessage = document.querySelector<HTMLElement>('.no-modules-message');
+        
+        radioButtons.forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                const target = e.target as HTMLInputElement;
+                const selectedCategory = target.value;
+                let visibleModules = 0;
+                
+                moduleCards.forEach(card => {
+                    const categoriesAttr = card.getAttribute('data-categories');
+                    if (categoriesAttr) {
+                        const cardCategories = categoriesAttr.split(',');
+                        
+                        if (selectedCategory === "All" || cardCategories.includes(selectedCategory)) {
+                            card.style.display = "flex";
+                            visibleModules++;
+                        } else {
+                            card.style.display = "none";
+                        }
+                    }
+                });
+
+                if (noModulesMessage !== null) {
+                    noModulesMessage.style.display = visibleModules === 0 ? "block" : "none";
+                }
+            });
+        });
+    });
+</script>
+
+<style scoped>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    .content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+
+    .elements{
+        display: flex;
+        flex-direction: column;
+        gap:60px;
+    }
+
+    .title {
+        text-align: center;
+        font-size: clamp(1rem, 4vw, 1.4rem); 
+        color: #082033;
+        font-family: Verdana;
+        font-weight: bold;
+        margin: 40px 0px;
+    }
+
+    h2 {
+        font-size: clamp(1.1rem, 4vw, 1.7rem); 
+    }
+
+    .level-grade {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .modules {
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .category-filter {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin: 20px 0 30px 0;
+    }
+
+    .radio-container {
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        padding: 6px 16px;
+        border-radius: 20px;
+        background-color: #f0f0f0;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+    }
+
+    .radio-container:hover {
+        background-color: #e0e0e0;
+    }
+
+    .category-radio {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .category-radio:checked + .radio-label {
+        font-weight: 600;
+        color: #E72025;
+    }
+
+    .radio-container:has(.category-radio:checked) {
+        background-color: #fff0f0;
+        border: 1px solid #ffcbcb;
+    }
+
+    .radio-label {
+        font-family: 'Poppins', Verdana, sans-serif;
+        font-size: 0.9rem;
+        color: #2C2C2C;
+    }
+
+    .no-modules-message {
+        display: none;
+        text-align: center;
+        font-size: clamp(1rem, 4vw, 1.2rem); 
+        color: #082033;
+        font-family: Verdana;
+        font-weight: bold;
+        margin-top: 50px;
+    }
+    
+
+    @media (min-width: 768px) {
+        .content {
+            margin: 0 10%;
+            padding: 0px 0px 40px 0px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .content {
+            margin: 0 5%;
+            padding: 0px 0px 100px 0px;
+        }
+
+        .test {
+			max-width: 800px;
+            margin: 0px 0px 120px 0px;
+        }
+    }
+</style>
