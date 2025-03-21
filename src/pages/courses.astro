@@ -1,0 +1,27 @@
+---
+import { useStoryblokApi } from '@storyblok/astro';
+import Layout from "../layouts/Layout.astro"
+
+const sbApi = useStoryblokApi();
+const { data } = await sbApi.get('cdn/stories/', {
+  content_type: 'course',
+  version: import.meta.env.DEV ? 'draft' : 'published',
+});
+
+const courses = data.stories;
+---
+
+<Layout>
+    
+<h1>English courses</h1>
+
+<ul>
+  {courses.map((course: any) => (
+    <li>
+      <a href={`/${course.full_slug}`}>{course.content.title}</a>
+    </li>
+  ))}
+</ul>
+
+</Layout>
+  
