@@ -1,5 +1,11 @@
 ---
 const { questionText, options, questionNumber } = Astro.props;
+
+let selectedOption = null;
+
+const handleOptionClick = (index) => {
+  selectedOption = index; // Met à jour l'option sélectionnée
+};
 ---
 
 <div class="container">
@@ -9,7 +15,10 @@ const { questionText, options, questionNumber } = Astro.props;
     </div>
     <div class="wrapper">
       {options.map((option, index) => (
-        <div key={index}>
+        <div 
+          key={index} 
+          class={`option ${selectedOption === index ? 'active' : ''}`} 
+          onClick={() => handleOptionClick(index)}>
           <p>{option}</p>
         </div>
       ))}
@@ -83,7 +92,8 @@ const { questionText, options, questionNumber } = Astro.props;
   transition: background-color 0.3s ease;
 }
 
-.wrapper > div:hover {
+.wrapper > div:hover,
+.wrapper > div:active {
   background-color: #708493;
 }
 
