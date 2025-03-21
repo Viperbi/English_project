@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+import imgLady from "../assets/ladyC.jpg";
+
+const pageTitle = "About Page";
+---
+<Layout pageTitle={pageTitle}>
+    <main class="content">
+        <h1>About page</h1>
+
+        <h2>About Lady Catherine</h2>
+        <section class="section1_about">
+            <div class="section1_about_div">
+                <img
+                    class="ladyC_photo"
+                    src={imgLady.src}
+                    alt="photo of Lady Catherine"
+                />
+
+                <p class="ladyC_text">
+                    Lady Catherine is from the Côte d’Opale. 
+                    She started off as an au pair in Ireland and graduated from the University of Dublin After that, 
+                    she started teaching English at Université du Littoral and is now continuing her career at ADRAR, 
+                    a training center teaching to the best class ever : the Bratisla Bios! (for the record, we created this website)
+                </p>
+            </div>
+        </section>
+
+        <section class="section2_about">
+             <h2>About this website</h2>
+
+            <p>
+                This website is a free interactive platform made to help the students with English. 
+                The main goal is to provide ways to upgrade their english level in a fun way with a level test and courses. 
+                A premium version with paid content will be added in another version.
+            </p>
+        </section> 
+       
+    </main>
+
+</Layout>
+
+<style scoped>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    h1{
+        text-align: center;
+        font-size: clamp(1rem, 4vw, 1.2rem); 
+        color: #082033;
+        font-family: Verdana;
+        font-weight: bold;
+        margin-bottom:50px;
+    }
+
+    h2{
+        text-align: center;
+        font-size: clamp(1.1rem, 4vw, 1.7rem); 
+        color: #082033;
+        font-family: Verdana;
+        font-weight: bold;
+        margin-bottom:50px;
+    }
+
+    .content {
+        padding: 50px 20px; 
+        background-color: rgba(183, 223, 255, 0.2);
+        align-items: center; 
+        text-align: center;
+        justify-content:center;
+    }
+
+    img.ladyC_photo{
+        width: 276px;
+        border-radius: 30px;
+    }
+
+    section{
+        margin-top: 80px;
+    }
+
+    .ladyC_text{
+        margin-top: auto;
+        margin-bottom: auto;
+        color: #082033;
+        font-family: Verdana;
+    }
+
+    .section2_about p{
+        margin: 0 auto;
+        color: #082033;
+        font-family: Verdana;
+    }
+ 
+
+/* -- media queries desktop -- */
+   @media (min-width: 768px) {
+        .content {
+            margin: 0 15%;
+        }
+
+        img.ladyC_photo{
+            width: 376px;
+        }
+
+        .section1_about_div{
+            display: flex;
+        }
+    
+        .ladyC_text{
+            width: 510px;
+            margin-top: auto;
+            margin-bottom: auto;
+            color: #082033;
+            font-family: Verdana;
+        }
+
+        .section2_about p{
+            width: 932px;
+            margin: 0 auto;
+            color: #082033;
+            font-family: Verdana;
+        }
+
+        .section1_about_div {
+            display: flex;
+            flex-direction: row;
+            gap: 50px;
+        }
+
+    }
+</style>

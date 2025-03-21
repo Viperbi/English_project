@@ -1,8 +1,22 @@
 ### TESTING MODE ###
 
-For run the cypress Interface : 
+To run the cypress Interface : 
 
 Command line : 
+
  npx cypress open
 
- #### TESTING MODE ###
+ ### DEV ###
+
+ To start the server for the development team : 
+
+Command line : 
+npm run dev
+
+### BUILD ###
+
+To start the server on the Host part : 
+
+Command line :
+
+npm run build

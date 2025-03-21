@@ -14,25 +14,15 @@
         <div class="column">
             <h3>Sections</h3>
             <ul>
-                <li>Courses</li>
-                <li>Tests</li>
-                <li>About</li>
-            </ul>
-        </div>
-        <div class="column">
-            <h3>More</h3>
-            <ul>
-                <li>Cookie</li>
-                <li>Settings</li>
-                <li>Report</li>
+                <li><a href="/courses">Courses</a></li>
+                <li><a href="/test">Tests</a></li>
+                <li><a href="/about">About</a></li>
             </ul>
         </div>
         <div class="column">
             <h3>Privacy</h3>
             <ul>
-                <li>Policy</li>
-                <li>GDPR</li>
-                <li>CCPA</li>
+                <li><a href="/policies">Policy</a></li>
             </ul>
         </div>
     </div>
@@ -45,69 +35,151 @@
 </footer>
 
 <style>
-    footer {
-        margin: 0;
-        padding: 0 250px;
-        display: flex;
-        flex-direction: column;
-        background-color: #082033;
-        color: #ffffff;
-        font-family: Verdana;
-        font-size: 21px;
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+    a:hover {
+        color: #E72025;
+        transition: all ease 0.3s;
     }
 
-    .mainContainer {
+    @media screen and (min-width: 601px) {
+        footer {
+            margin: 0;
+            padding: 0 250px;
+            display: flex;
+            flex-direction: column;
+            background-color: #082033;
+            color: #ffffff;
+            font-family: "Inter", serif;
+            font-size: 18px;
+            box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.39);
+        }
+
+        .mainContainer {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 40px;
+        }
+
+        .column:first-child {
+            margin-right: 150px;
+        }
+
+        h3 {
+            margin-top: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding-bottom: 10px;
+        }
+        p {
+            width: 270px;
+            padding-bottom: 10px;
+        }
+
+        .button {
+            background-color: #b7dfff25;
+            border: none;
+            border-radius: 25px;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 21px;
+            padding: 10px 70px;
+            /* margin-bottom: 10px; */
+            align-self: center;
+        }
+
+        .button:hover {
+            background-color: rgba(183, 223, 255, 0.2);
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .lowerContainer {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        footer {
+            padding: 0 12px;
+            display: flex;
+            flex-direction: column;
+            background-color: #082033;
+            color: #ffffff;
+            font-family: "Inter", serif;
+            font-size: 10px;
+        }
+
+        .mainContainer {
         display: flex;
         flex-direction: row;
     }
 
-    .column {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 40px;
-    }
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
+        }
 
-    .column:first-child {
-        margin-right: 150px;
-    }
+        h3 {
+            margin-top: 0;
+        }
 
-    h3 {
-        margin-top: 0;
-    }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
 
-    ul {
-        list-style: none;
-        padding: 0;
-    }
+        li {
+            padding-bottom: 10px;
+        }
+        p {
+            width: 120px;
+            padding-bottom: 10px;
+        }
 
-    li {
-        padding-bottom: 10px;
-    }
-    p {
-        width: 270px;
-        padding-bottom: 10px;
-    }
+        .button {
+            background-color: #b7dfff25;
+            border: none;
+            border-radius: 25px;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 12px;
+            padding: 5px 20px;
+            align-self: center;
+        }
 
-    .button {
-        background-color: #b7dfff25;
-        border: none;
-        border-radius: 25px;
-        color: #ffffff;
-        font-weight: bold;
-        font-size: 21px;
-        padding: 10px 70px;
-        margin-bottom: 30px;
-        align-self: center;
-    }
+        .button:hover {
+            background-color: rgba(183, 223, 255, 0.2);
+            cursor: pointer;
+        }
 
-    a {
-        text-decoration: none;
-        color: #ffffff;
-    }
+        a {
+            text-decoration: none;
+            color: white;
+        }
 
-    .lowerContainer {
-        display: flex;
-        flex-direction: column;
+        .lowerContainer {
+            display: flex;
+            flex-direction: column;
+        }
     }
 </style>

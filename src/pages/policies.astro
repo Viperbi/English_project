@@ -1,0 +1,214 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const pageTitle = "Privacy Policy";
+---
+
+<Layout pageTitle={pageTitle}>
+  <div class="content">
+    <h2>Privacy Policy</h2>
+
+    <p><strong>Effective Date:</strong> 21/03/2025</p>
+
+    <section>
+      <p>
+        At <em>Lady Learning</em>, we are committed to protecting your privacy.
+        This Privacy Policy explains how we collect, use, and safeguard your
+        personal information when you visit our website <em
+          >lady-learning.com</em
+        > and use our services, including our online English courses. By using our
+        website and services, you agree to the collection and use of information
+        in accordance with this Privacy Policy.
+      </p>
+    </section>
+    <section>
+      <h3>1. Information We Collect</h3>
+      <p>
+        We collect personal information that you provide to us when you use our
+        website or services. This may include:
+      </p>
+      <ul>
+        <li>
+          <strong>Personal Identification Information:</strong> Name, email address,
+          phone number, and any other details you provide when signing up for courses
+          or interacting with our website.
+        </li>
+        <li>
+          <strong>Payment Information:</strong> If you purchase a course, we may
+          collect payment details such as credit card information, but this is processed
+          through a secure payment gateway.
+        </li>
+        <li>
+          <strong>Usage Data:</strong> Information on how you access and use our
+          website, including your IP address, browser type, and session duration.
+          This helps us improve our website and services.
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h3>2. How We Use Your Information</h3>
+      <p>
+        We use your information to provide, personalize, and improve our
+        services. Specifically, we may use your information for the following
+        purposes:
+      </p>
+      <ul>
+        <li>To create and manage your account and provide course materials.</li>
+        <li>To process payments and manage transactions.</li>
+        <li>
+          To communicate with you about course updates, promotions, or support
+          inquiries.
+        </li>
+        <li>
+          To improve our website and services based on user feedback and data.
+        </li>
+        <li>
+          To comply with legal obligations and enforce our terms of service.
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h3>3. How We Protect Your Information</h3>
+      <p>
+        We take reasonable steps to protect your personal information from
+        unauthorized access, alteration, or disclosure. Our website uses
+        encryption and other security technologies to safeguard your data.
+      </p>
+      <p>
+        However, please be aware that no method of transmission over the
+        internet or electronic storage is 100% secure, and we cannot guarantee
+        absolute security.
+      </p>
+    </section>
+    <section>
+      <h3>4. Sharing Your Information</h3>
+      <p>
+        We do not sell, rent, or share your personal information with third
+        parties, except in the following circumstances:
+      </p>
+      <ul>
+        <li>
+          <strong>Service Providers:</strong> We may share your information with
+          third-party service providers who assist us in running our business, such
+          as payment processors, email service providers, and website hosting.
+        </li>
+        <li>
+          <strong>Legal Requirements:</strong> We may disclose your information if
+          required by law or if we believe it’s necessary to protect our rights or
+          comply with a legal process.
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h3>5. Cookies and Tracking Technologies</h3>
+      <p>
+        We use cookies and similar tracking technologies to enhance your
+        experience on our website. These technologies help us remember your
+        preferences, analyze trends, and improve our services.
+      </p>
+      <p>
+        You can choose to disable cookies through your browser settings, but
+        this may impact your experience on our site.
+      </p>
+    </section>
+    <section>
+      <h3>6. Your Rights</h3>
+      <p>
+        You have the right to access, update, or delete your personal
+        information. If you would like to exercise these rights, please contact
+        us at [Your Contact Email].
+      </p>
+      <p>
+        If you are located in the European Union (EU), you have additional
+        rights under the General Data Protection Regulation (GDPR), including
+        the right to withdraw consent, the right to object to data processing,
+        and the right to lodge a complaint with a supervisory authority.
+      </p>
+    </section>
+    <section>
+      <h3>7. Children’s Privacy</h3>
+      <p>
+        Our services are not intended for children under the age of 13, and we
+        do not knowingly collect personal information from children. If we
+        become aware that we have collected personal information from a child
+        under 13, we will take steps to delete it.
+      </p>
+    </section>
+    <section>
+      <h3>8. Changes to This Privacy Policy</h3>
+      <p>
+        We may update this Privacy Policy from time to time to reflect changes
+        in our practices or legal requirements. We will notify you of any
+        significant changes by posting an updated version on this page, along
+        with the new effective date.
+      </p>
+    </section>
+    <section>
+      <h3>9. Contact Us</h3>
+      <p>
+        If you have any questions or concerns about this Privacy Policy or how
+        we handle your personal information, please contact us at:
+      </p>
+
+      <div class="contact">
+        <p>Lady Catherine</p>
+        <a href="www.lady-catherine.com">www.lady-catherine.com</a>
+        <a href="mailto:lady-catherine@mail.com">lady-catherine@mail.com</a>
+        <p>01 55 44 99 44</p>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style scoped>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+  * {
+    font-family: "Lato", sans-serif;
+  }
+  h2 {
+    margin: 0;
+  }
+
+  .content {
+    margin-inline: 6rem;
+    background-color: rgba(183, 223, 255, 0.2);
+    padding: 2rem;
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact > p {
+    padding: 0;
+    margin: 0;
+  }
+
+  h2,
+  h3 {
+    font-family: "Poppins", sans-serif;
+  }
+
+  h2,
+  h3,
+  .content > p {
+    color: #082033;
+  }
+
+  @media (width >= 950px) {
+    h2,
+    h3,
+    .content > p {
+      text-align: left;
+    }
+  }
+  @media (width < 950px) {
+    h2,
+    h3,
+    .content > p {
+      text-align: center;
+    }
+  }
+</style>
