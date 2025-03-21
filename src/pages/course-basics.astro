@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import londonImage from '../assets/london.svg';
+
+const pageTitle = "Back to the basics";
+---
+
+<Layout pageTitle={pageTitle}>
+
+    <div class="course-basics">
+        <img src={londonImage.src} />
+        <div class="first">
+            <h1>Back to the Basics</h1>
+            <p>Objective: Enhance your conversational skills with more complex phrases for daily interactions.</p>
+            <h4>1. Greetings and Introductions</h4>
+            <ul>
+                <li>Hey! How have you been?</li>
+                <li>I’ve been doing well, thanks. How about you?</li>
+                <li>It’s a pleasure to meet you.</li>
+                <li>Could you remind me of your name?</li>
+                <li>I’m [Your Name]. Nice to meet you.</li>
+                <li>Where are you from?</li>
+                <li>I’m originally from [Your Country], but I live in [Current City].</li>
+            </ul>
+            <p>Practice: Have a natural conversation using these phrases.</p>
+            <h4>2. Asking for and Giving Directions</h4>
+            <ul>
+                <li>Excuse me, could you point me in the direction of the nearest train station?</li>
+                <li>Sure! It’s about a 10-minute walk from here.</li>
+                <li>Head straight down this road, then take the second left.</li>
+                <li>You might want to check Google Maps for live updates.</li>
+                <li>Thank you so much! I appreciate it.</li>
+            </ul>
+            <p>Tip: Use specific landmarks when giving directions.</p>
+            <h4>3. Shopping and Daily Activities</h4>
+            <ul>
+                <li>I’m looking for a pair of comfortable running shoes.</li>
+                <li>Do you have any recommendations?</li>
+                <li>What’s your return policy?</li>
+                <li>Is there a discount if I buy two?</li>
+                <li>Could I get a receipt, please?</li>
+            </ul>
+            <p>Role-play Exercise: Simulate a shopping experience and negotiate politely.</p>
+            <h4>4. Making Requests and Offers</h4>
+            <ul>
+                <li>Would you mind helping me carry this?</li>
+                <li>Could you possibly lend me a hand with this project?</li>
+                <li>Let me know if you need anything else.</li>
+                <li>I’d be happy to assist you.</li>
+                <li>That’s very kind of you. Thank you!</li>
+            </ul>
+            <p>Politeness Tip: Phrases like “Would you mind…?” and “Could you possibly…?” are polite and formal.</p>
+            <h4>5. Expressing Yourself</h4>
+            <ul>
+                <li>To be honest, I think it could be better.</li>
+                <li>In my opinion, it’s a great opportunity.</li>
+                <li>I completely agree with you.</li>
+                <li>That’s an interesting point.</li>
+                <li>Could you elaborate on that?</li>
+            </ul>
+            <p>Practice: Express your views on different topics using these expressions.</p>
+            <h4>Homework</h4>
+            <ol>
+                <li>Practice a more in-depth introduction, including hobbies or interests.</li>
+                <li>Ask for and give directions in a detailed conversation.</li>
+                <li>Role-play a shopping scenario using advanced phrases.</li>
+            </ol>
+            <p>Keep practicing and enjoy building your conversational confidence!</p>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    .course-basics {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #082033;
+        font-family: Verdana;
+        padding-bottom: 20px;
+    }
+
+    img {
+        padding-top: 35px;
+    }
+
+    h1 {
+        padding: 15px 0;
+        text-align: center;
+    }
+
+    .first {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media (max-width: 600px) {
+        .course-basics {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #082033;
+        font-family: Verdana;
+    }
+
+    img {
+        padding-top: 35px;
+    }
+
+    h1 {
+        padding: 15px 0;
+        text-align: center;
+    }
+
+    .first {
+        display: flex;
+        flex-direction: column;
+        padding-left: 20px;
+    }
+    }
+</style>
