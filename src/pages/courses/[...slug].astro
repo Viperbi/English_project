@@ -1,0 +1,38 @@
+---
+import { renderRichText, useStoryblokApi } from '@storyblok/astro';
+import Layout from "../../layouts/Layout.astro"
+
+export async function getStaticPaths() {
+  const sbApi = useStoryblokApi();
+
+  // Récupérer tous les cours depuis Storyblok
+  const { data } = await sbApi.get('cdn/stories', {
+    content_type: 'Course', // ou ton type de contenu
+    version: import.meta.env.DEV ? 'draft' : 'published',
+  });
+
+  const courses = data.stories;
+
+  // Retourner les chemins (slugs) pour chaque cours
+  return courses.map((course: any) => ({
+    params: { slug: course.slug },
+  }));
+}
+
+const sbApi = useStoryblokApi();
+const { slug } = Astro.params;
+const { data }: any = await sbApi.get(`cdn/stories/courses/${slug}`, {
+  version: import.meta.env.DEV ? 'draft' : 'published',
+});
+
+const course = data.story;
+const content = renderRichText(course.content.content);
+console.log(course.content.content.content);
+---
+
+<Layout>
+  <h1>{course.content.title}</h1>
+  <h2>Level {course.content.level}</h2>
+  <img src={course.content.medium.filename} alt={course.content.title} />
+  <p set:html={content}></p>
+</Layout>

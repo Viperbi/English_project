@@ -9,6 +9,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.5.3"
+    "@storyblok/astro": "^6.0.1",
+    "@storyblok/js": "^3.3.0",
+    "astro": "^5.1.2",
+    "vite": "^6.1.0"
   }
 }
