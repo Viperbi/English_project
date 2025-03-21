@@ -1,0 +1,36 @@
+--- 
+import Layout from '../layouts/Layout.astro';
+import Results from '../components/Results.astro';
+import resultsData from '../data/results.json';
+
+const pageTitle = "Test Results";
+
+const currentResult = resultsData[2];
+---
+
+<Layout pageTitle={pageTitle}>
+  <div class="content">
+    <p class="title">Test Your English Level</p>
+    <Results
+      scoreTitle={currentResult.title}
+      scoreNumber={currentResult.score}
+    />
+  </div>
+</Layout>
+
+<style scoped>
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 40px;
+    color: #082033;
+    font-family: Verdana;
+    font-weight: bold;
+  }
+</style>
