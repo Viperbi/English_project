@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Question from '../components/Question.astro';
+// Importation des données questionts/réponses depuis un fichier JSON
+import questionsData from '../data/questions.json';
+
+const pageTitle = "Test Page";
+let currentQuestionIndex = 0;
+---
+
+<Layout pageTitle={pageTitle}>
+  <div class="content">
+    <p class="title">Test Your English Level</p>
+    <Question
+        questionNumber={currentQuestionIndex + 1}
+        questionText={questionsData[currentQuestionIndex].question}
+        options={questionsData[currentQuestionIndex].options}
+    />
+
+    <!-- Remarque: Ajoutez la logique pour passer à la question suivante ici -->
+  </div>
+</Layout>
+
+<style scoped>
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 40px;
+    color: #082033;
+    font-family: Verdana;
+    font-weight: bold;
+  }
+
+</style>
