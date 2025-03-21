@@ -58,53 +58,55 @@ const pageTitle = "Courses Page";
             <h1>Courses</h1>
         </div>
 
-        <div class="level">
-            <div class="title">
-                <h2>Choose your level</h2>
-            </div>
-    
-            <div class="level-grade">
-                <Level title="Beginner" image={beginner.src} link="/beginner" />
-                <Level title="Intermediate" image={intermediate.src} link="/intermediate" darkMode={true} />
-                <Level title="Advanced" image={advanced.src} link="/advanced" />
-            </div>
-        </div>
+        <div class="elements">
+            <div class="level">
+                <div class="title">
+                    <h2>Choose your level</h2>
+                </div>
         
-        <div class="module">
-            <div class="title">
-                <h2>Modules</h2>
+                <div class="level-grade">
+                    <Level title="Beginner" image={beginner.src} link="/beginner" />
+                    <Level title="Intermediate" image={intermediate.src} link="/intermediate" darkMode={true} />
+                    <Level title="Advanced" image={advanced.src} link="/advanced" />
+                </div>
             </div>
+            
+            <div class="module">
+                <div class="title">
+                    <h2>Modules</h2>
+                </div>
 
-            <div class="category-filter">
-                <label class="radio-container">
-                    <input 
-                        type="radio" 
-                        name="category" 
-                        value="All" 
-                        class="category-radio"
-                        checked
-                    />
-                    <span class="radio-label">All</span>
-                </label>
-                {Categories.map(category => (
+                <div class="category-filter">
                     <label class="radio-container">
                         <input 
                             type="radio" 
                             name="category" 
-                            value={category} 
+                            value="All" 
                             class="category-radio"
+                            checked
                         />
-                        <span class="radio-label">{category}</span>
+                        <span class="radio-label">All</span>
                     </label>
-                ))}
-            </div>
+                    {Categories.map(category => (
+                        <label class="radio-container">
+                            <input 
+                                type="radio" 
+                                name="category" 
+                                value={category} 
+                                class="category-radio"
+                            />
+                            <span class="radio-label">{category}</span>
+                        </label>
+                    ))}
+                </div>
 
-            <div class="modules" id="modules-container">
-                {modules.map(module => (
-                    <Module title={module.title} image={module.image} description={module.description} link={module.link} categories={module.categories} />
-                ))}
+                <div class="modules" id="modules-container">
+                    {modules.map(module => (
+                        <Module title={module.title} image={module.image} description={module.description} link={module.link} categories={module.categories} />
+                    ))}
+                </div>
+                <p class="no-modules-message">Aucun module trouvé...</p>            
             </div>
-            <p class="no-modules-message">Aucun module trouvé...</p>            
         </div>
     </div>
 </Layout>
@@ -151,15 +153,21 @@ const pageTitle = "Courses Page";
         flex-direction: column;
         align-items: center;
         margin-bottom: 50px;
+    }
+
+    .elements{
+        display: flex;
+        flex-direction: column;
         gap:60px;
     }
 
     .title {
         text-align: center;
-        font-size: clamp(1rem, 4vw, 1.2rem); 
+        font-size: clamp(1rem, 4vw, 1.4rem); 
         color: #082033;
         font-family: Verdana;
         font-weight: bold;
+        margin: 40px 0px;
     }
 
     h2 {
@@ -244,19 +252,19 @@ const pageTitle = "Courses Page";
     @media (min-width: 768px) {
         .content {
             margin: 0 10%;
-            padding: 80px 40px;
+            padding: 0px 0px 40px 0px;
         }
     }
 
     @media (min-width: 1024px) {
         .content {
             margin: 0 5%;
-            padding: 100px 5%;
+            padding: 0px 0px 100px 0px;
         }
 
         .test {
 			max-width: 800px;
-            margin: 120px 0;
+            margin: 0px 0px 120px 0px;
         }
     }
 </style>
