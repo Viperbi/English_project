@@ -20,8 +20,8 @@ document.getElementById("registerForm").addEventListener("submit", async (e) => 
     const verifPass = document.getElementById("password-confirmation").value;
 
     if(password !== verifPass){
-        console.error("AAAAAAAAAAAAA it doesnt work!")
-        throw new error("AAAAAAAAAAAAA it doesnt work!")
+        console.error("Password's dont match")
+        throw new error("Password's dont match")
     }
 
     await handleRegister(email, password);
