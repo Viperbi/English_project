@@ -1,6 +1,6 @@
 ### TESTING MODE ###
 
-For run the cypress Interface : 
+To run the cypress Interface : 
 
 Command line : 
 
