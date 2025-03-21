@@ -1,0 +1,134 @@
+---
+import Layout from "../layouts/Layout.astro";
+const pageTitle = "Premium English Courses";
+---
+
+<Layout pageTitle={pageTitle}>
+  <main class="content">
+    <h1>Premium English Online Courses</h1>
+
+    <div class="container">
+      <div class="login-message" id="loginMessage">
+        <p>
+          To discover our exclusive premium courses, please <a href="/login"
+            >log in</a
+          >.
+        </p>
+      </div>
+
+      <div class="course-list" id="courseList">
+        <h2>Our Premium English Courses</h2>
+
+        <div class="course">
+          <h3>Advanced English Writing Mastery</h3>
+          <p>
+            Take your writing skills to the next level with this in-depth course
+            on advanced English composition, structure, and style.
+          </p>
+        </div>
+
+        <div class="course">
+          <h3>Fluent English Speaking Skills</h3>
+          <p>
+            Boost your confidence and fluency with comprehensive speaking
+            exercises and tips for everyday conversations.
+          </p>
+        </div>
+
+        <div class="course">
+          <h3>English Grammar Perfection</h3>
+          <p>
+            Master English grammar rules and nuances through engaging lessons
+            and practical examples.
+          </p>
+        </div>
+
+        <div class="course">
+          <h3>English for Business Communication</h3>
+          <p>
+            Enhance your professional communication skills in English with this
+            tailored course designed for the workplace.
+          </p>
+        </div>
+      </div>
+
+      <div class="cta" id="cta">
+        <p>
+          If you are not logged in, please log in to access these premium
+          courses!
+        </p>
+        <a href="/login">Log In</a>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #082033;
+  }
+  .content {
+    margin: 2rem;
+  }
+
+  .container {
+    padding: 20px;
+  }
+  .login-message {
+    background-color: #082033;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+  }
+  .login-message a {
+    color: #082033;
+    text-decoration: underline;
+  }
+  .course-list {
+    display: none;
+  }
+  .course {
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  .course h3 {
+    margin-top: 0;
+  }
+  .cta {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  .cta a {
+    background-color: #2c2c2c;
+    color: #fff;
+    padding: 1rem 4rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 1rem;
+  }
+</style>
+
+<script>
+  let isLoggedIn = true;
+  const loginMessage = document.getElementById("loginMessage");
+  const courseList = document.getElementById("courseList");
+  const cta = document.getElementById("cta");
+
+  if (loginMessage && courseList && cta) {
+    if (isLoggedIn) {
+      loginMessage.style.display = "none";
+      cta.style.display = "none";
+      courseList.style.display = "block";
+    } else {
+      loginMessage.style.display = "block";
+      cta.style.display = "block";
+      courseList.style.display = "none";
+    }
+  }
+</script>
