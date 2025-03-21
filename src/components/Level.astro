@@ -1,0 +1,82 @@
+---
+const { title, image, link, buttonText = "Go to lessons", darkMode = false } = Astro.props;
+---
+
+<div class={`level-card ${darkMode ? 'dark-mode' : ''}`}>
+  <p class="card-title">{title}</p>
+  <div class="image-container">
+    <img src={image} alt={title} class="level-image">
+  </div>
+  <a href={link} class="lessons-button">{buttonText}</a>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+  .level-card {
+    position: relative;
+    border-radius: 8px;
+    border: 1px solid #2C2C2C;
+    overflow: hidden;
+    width: 200px;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+    background-color: white;
+    gap:10px;
+  }
+
+  .dark-mode {
+    background-color: #2C2C2C;
+    color: white;
+  }
+
+  .card-title {
+    margin: 0 0 15px 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Poppins', Verdana, sans-serif;
+  }
+
+  .image-container {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .level-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  .lessons-button {
+    background-color: #2C2C2C;
+    color: white;
+    padding: 10px 50px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: 'Poppins', Verdana, sans-serif;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    margin-top: auto;
+    text-align: center;
+  }
+
+  .dark-mode .lessons-button {
+    background-color: #E3E3E3;
+    color: #2C2C2C;
+  }
+
+  .dark-mode .lessons-button:hover, .lessons-button:hover {
+    background-color: #E72025;
+    color: white;
+  }
+</style>
